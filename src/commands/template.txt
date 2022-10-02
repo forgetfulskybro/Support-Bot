@@ -1,0 +1,30 @@
+const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
+const Blacklist = require('../util/models/blocked.js');
+const Thread = require('../util/models/thread.js');
+module.exports = {
+    category: "Modmail",
+    data: new SlashCommandBuilder()
+        .setName('')
+        .setDescription(''),
+
+    /**
+     * @param {CommandInteraction} interaction
+     * @param {Client} client
+     */
+
+    async execute(interaction, client) {
+        if (interaction.guild) return interaction.reply({ ephemeral: true, content: "To start a modmail ticket, run this command in your DM's." })
+
+        const block = await Blacklist.findOne({
+            block: interaction.user.id
+        })
+        if (block) return interaction.reply({ ephemeral: true, content: "You don't have access to create tickets. This could be from abusing our system or harrassment. " })
+
+        const haveThread = await Thread.findOne({
+            recipient: interaction.user.id,
+            closed: false
+        });
+        if (haveThread) return interaction.reply("You already have an ongoing thread. You can't create multiple tickets!");
+
+    },
+};
