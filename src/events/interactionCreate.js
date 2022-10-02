@@ -3,19 +3,19 @@ const Giveaways = require('../util/models/giveaway.js');
 
 const misc = [{
   name: "giveaway",
-  id: "1025913618228846674"
+  id: "1025491165618897016"
 }, {
   name: "announcement",
-  id: "1025913582833127546"
+  id: "1025491018646310972"
 }, {
   name: "changelog",
-  id: "1025913636721524807"
+  id: "1025491057401667645"
 }, {
   name: "bump",
-  id: "1025913970386817046"
+  id: "1025491188167491704"
 }, {
   name: "status",
-  id: "1025913659819577426"
+  id: "1025699522791358534"
 }]
 
 let page;
