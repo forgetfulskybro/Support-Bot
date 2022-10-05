@@ -30,7 +30,7 @@ class Threading {
     if (!channel) message.channel.send(`${this.client.config.emojis.redTick} Channel for thread ${thread.id} can not be found.`);
 
     if (!message) {
-      return await message.react(client.config.emojis.redTick.replace("<:no:", "").replace(">", "")).catch(() => { })
+      return await message.react(client.config.emojis.redTick.replace("<:BadCheck:", "").replace(">", "")).catch(() => { })
     }
 
     message.attachments.map(async attachment => {
@@ -72,7 +72,7 @@ class Threading {
           timestamp: Date.now()
         }).save());
 
-        await message.react(client.config.emojis.greenTick.replace("<:yes:", "").replace(">", ""));
+        await message.react(client.config.emojis.greenTick.replace("<:GoodCheck:", "").replace(">", ""));
 
         channel.send({
           content: subb,
@@ -130,7 +130,7 @@ class Threading {
       timestamp: Date.now()
     }).save());
 
-    await message.react(client.config.emojis.greenTick.replace("<:yes:", "").replace(">", ""));
+    await message.react(client.config.emojis.greenTick.replace("<:GoodCheck:", "").replace(">", ""));
   }
 }
 
