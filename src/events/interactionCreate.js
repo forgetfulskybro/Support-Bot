@@ -178,7 +178,7 @@ module.exports = async (client, interaction) => {
       if (interaction.customId === "reroll") {
         if (!interaction.member.roles.cache.has(client.config.developerRole)) return interaction.reply({
           ephemeral: true,
-          content: "You have to be in management to reroll giveaways!"
+          content: "You have to be a developer to reroll giveaways!"
         }).catch(() => { })
 
         if (!giveaway.ended) return interaction.reply({
@@ -714,7 +714,7 @@ module.exports = async (client, interaction) => {
       if (interaction.customId === "claim") {
         if (!interaction.member.roles.cache.has(client.config.developerRole)) return interaction.reply({
           ephemeral: true,
-          content: "You have to be in management to claim giveaways!"
+          content: "You have to be a developer to claim giveaways!"
         }).catch(() => { })
 
         const successEmbed = new EmbedBuilder()
