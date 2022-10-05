@@ -341,7 +341,7 @@ module.exports = async (client, interaction) => {
           { name: "Prize", value: `${giveaway.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaway.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").send(`${giveaway.pickedWinners.map(w => `<@${w.user.id}>`).join(", ")}`).then(m => setTimeout(async () => {
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).send(`${giveaway.pickedWinners.map(w => `<@${w.user.id}>`).join(", ")}`).then(m => setTimeout(async () => {
           m.delete()
         }, 2500)).catch(() => {
           return;
@@ -398,13 +398,13 @@ module.exports = async (client, interaction) => {
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").send(`${giveaways.pickedWinners.map(w => `<@${w.user.id}>`).join(", ")}`).then(m => setTimeout(async () => {
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).send(`${giveaways.pickedWinners.map(w => `<@${w.user.id}>`).join(", ")}`).then(m => setTimeout(async () => {
           m.delete()
         }, 2500)).catch(() => {
           return;
         })
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
           embeds: [successEmbed],
         }));
 
@@ -452,13 +452,13 @@ module.exports = async (client, interaction) => {
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
           m.delete()
         }, 2500)).catch(() => {
           return;
         })
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
           embeds: [successEmbed],
         }));
 
@@ -506,13 +506,13 @@ module.exports = async (client, interaction) => {
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
           m.delete()
         }, 2500)).catch(() => {
           return;
         })
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
           embeds: [successEmbed],
         }));
 
@@ -560,13 +560,13 @@ module.exports = async (client, interaction) => {
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
           m.delete()
         }, 2500)).catch(() => {
           return;
         })
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
           embeds: [successEmbed],
         }));
 
@@ -614,13 +614,13 @@ module.exports = async (client, interaction) => {
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
           m.delete()
         }, 2500)).catch(() => {
           return;
         })
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
           embeds: [successEmbed],
         }));
 
@@ -668,13 +668,13 @@ module.exports = async (client, interaction) => {
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).send(`<@${winner.user.id}>`).then(m => setTimeout(async () => {
           m.delete()
         }, 2500)).catch(() => {
           return;
         })
 
-        client.guilds.cache.get("286252263109033984").channels.cache.get("622617791538921492").messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
+        client.guilds.cache.get(client.config.staffGuild).channels.cache.get(client.config.giveaway).messages.fetch({ message: giveaways.msgId }).then(m => m.edit({
           embeds: [successEmbed],
         }));
 
