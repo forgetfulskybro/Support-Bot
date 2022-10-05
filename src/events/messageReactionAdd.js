@@ -54,5 +54,9 @@ module.exports = async (client, messageReaction, user) => {
                 labels: ["Discord Request", "enhancement"]
             })
         }
+    } else if (messageReaction._emoji.id === `${client.config.emojis.redTick.replace("<:BadCheck:", "").replace(">", "")}` && messageReaction.message.channelId === client.config.suggests) {
+        if (messageReaction.count === 6 && messageReaction.me) {
+            messageReaction.message.reactions.removeAll();
+        }
     }
 };
