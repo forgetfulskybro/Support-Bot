@@ -13,6 +13,7 @@ module.exports = async (client, messageReaction, user) => {
     if (messageReaction._emoji.id === `${client.config.emojis.greenTick.replace("<:GoodCheck:", "").replace(">", "")}` && messageReaction.message.channelId === client.config.suggests) {
         if (user.id === forgetful) {
             await messageReaction.message.reactions.removeAll();
+            const message = messageReaction.message.content.replace("\n", "").split(/\*\*Title\*\*: |\*\*Description\*\*: | \s +/).filter((e) => e.length > 0);
 
             const octokit = new Octokit({
                 auth: process.env.GITHUB_TOKEN_1
@@ -21,12 +22,13 @@ module.exports = async (client, messageReaction, user) => {
             return await octokit.request('POST /repos/Would-You-Bot/Would-You/issues', {
                 owner: 'Would-You-Bot',
                 repo: 'Would-You',
-                title: `${messageReaction.message.author.username}'s Request`,
-                body: messageReaction.message.content,
+                title: message[0],
+                body: message[1],
                 labels: ["Discord Request", "enhancement"]
             })
         } else if (user.id === mezo) {
             messageReaction.message.reactions.removeAll();
+            const message = messageReaction.message.content.replace("\n", "").split(/\*\*Title\*\*: |\*\*Description\*\*: | \s +/).filter((e) => e.length > 0);
 
             const octokit = new Octokit({
                 auth: process.env.GITHUB_TOKEN_2
@@ -35,12 +37,14 @@ module.exports = async (client, messageReaction, user) => {
             return await octokit.request('POST /repos/Would-You-Bot/Would-You/issues', {
                 owner: 'Would-You-Bot',
                 repo: 'Would-You',
-                title: `${messageReaction.message.author.username}'s Request`,
-                body: messageReaction.message.content,
+                title: message[0],
+                body: message[1],
                 labels: ["Discord Request", "enhancement"]
             })
         } else if (messageReaction.count === 6 && messageReaction.me) {
             messageReaction.message.reactions.removeAll();
+            const message = messageReaction.message.content.replace("\n", "").split(/\*\*Title\*\*: |\*\*Description\*\*: | \s +/).filter((e) => e.length > 0);
+            
             const auth = both[Math.floor(Math.random() * both.length)]
             const octokit = new Octokit({
                 auth: auth
@@ -49,8 +53,8 @@ module.exports = async (client, messageReaction, user) => {
             return await octokit.request('POST /repos/Would-You-Bot/Would-You/issues', {
                 owner: 'Would-You-Bot',
                 repo: 'Would-You',
-                title: `${messageReaction.message.author.username}'s Request`,
-                body: messageReaction.message.content,
+                title: message[0],
+                body: message[1],
                 labels: ["Discord Request", "enhancement"]
             })
         }
