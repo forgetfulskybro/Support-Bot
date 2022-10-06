@@ -70,7 +70,7 @@ module.exports = {
                     .setTitle("Feature Requests")
                     .setColor("#FFBF40")
                     .setDescription(`To submit a **feature request**, head over to <#1009932626938826782> and use the </suggest:1> command which will bring up a modal for you to type your suggestion. Once you're done, press the **Submit** button and head back into <#1009932624728440842> to upvote your request!\n\nIf your suggest was accepted, the developers will send a message in the thread connected to your message and/or it'll be displayed in <#1009932614024568842>.`)
-                    .setImage("https://cdn.discordapp.com/attachments/857797178596524045/1025889232209842268/DiscordCanary_ykBU9RAvMw_Video.gif")
+                    .setImage("https://cdn.discordapp.com/attachments/945100320973934653/1027695234932543559/DiscordCanary_noV8fq4CJA_Video.gif")
                 interaction.channel.send({ embeds: [embed] })
                 break;
             }
