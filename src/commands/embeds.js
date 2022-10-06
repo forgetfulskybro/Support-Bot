@@ -21,7 +21,7 @@ module.exports = {
      */
 
     async execute(interaction, client) {
-        if (!interaction.member.roles.cache.has(client.config.supportRole)) return interaction.reply({ ephemeral: true, content: `${client.config.emojis.redTick} You must be apart of the developer team to access this command!` })
+        if (!interaction.member.roles.cache.has(client.config.developerRole)) return interaction.reply({ ephemeral: true, content: `${client.config.emojis.redTick} You must be apart of the developer team to access this command!` })
 
         switch (interaction.options._hoistedOptions[0].value) {
             case "roles": {
