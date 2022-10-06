@@ -22,7 +22,7 @@ module.exports = async (client, messageReaction, user) => {
             return await octokit.request('POST /repos/Would-You-Bot/Would-You/issues', {
                 owner: 'Would-You-Bot',
                 repo: 'Would-You',
-                title: message[0],
+                title: `${message[0]} - ${messageReaction.message.author.username}`,
                 body: message[1],
                 labels: ["Discord Request", "enhancement"]
             })
@@ -37,7 +37,7 @@ module.exports = async (client, messageReaction, user) => {
             return await octokit.request('POST /repos/Would-You-Bot/Would-You/issues', {
                 owner: 'Would-You-Bot',
                 repo: 'Would-You',
-                title: message[0],
+                title: `${message[0]} - ${messageReaction.message.author.username}`,
                 body: message[1],
                 labels: ["Discord Request", "enhancement"]
             })
@@ -53,7 +53,7 @@ module.exports = async (client, messageReaction, user) => {
             return await octokit.request('POST /repos/Would-You-Bot/Would-You/issues', {
                 owner: 'Would-You-Bot',
                 repo: 'Would-You',
-                title: message[0],
+                title: `${message[0]} - ${messageReaction.message.author.username}`,
                 body: message[1],
                 labels: ["Discord Request", "enhancement"]
             })
