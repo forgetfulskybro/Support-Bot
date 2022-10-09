@@ -1,6 +1,7 @@
 const { EmbedBuilder, ButtonBuilder, ActionRowBuilder } = require("discord.js")
 const Giveaways = require('../util/models/giveaway.js');
-
+let pages = [];
+let page;
 const misc = [{
   name: "giveaway",
   id: "1025491165618897016"
@@ -17,9 +18,6 @@ const misc = [{
   name: "status",
   id: "1025699522791358534"
 }]
-
-let page;
-let pages = [];
 
 module.exports = async (client, interaction) => {
   if (interaction.isChatInputCommand()) {
@@ -44,40 +42,40 @@ module.exports = async (client, interaction) => {
 
       class Paginator {
         constructor(pages = []) {
-          pages = Array.isArray(pages) ? pages : [];
-          page = 0;
+            this.pages = Array.isArray(pages) ? pages : [];
+            this.page = 0;
         }
 
         add(page) {
-          pages.push(page);
-          return this;
+            this.pages.push(page);
+            return this;
         }
 
         setTransform(fn) {
-          const _pages = [];
-          let i = 0;
-          const ln = pages.length;
-          for (const page of pages) {
-            _pages.push(fn(page, i, ln));
-            i++;
-          }
-          pages = _pages;
-          return this;
+            const _pages = [];
+            let i = 0;
+            const ln = pages.length;
+            for (const page of pages) {
+                _pages.push(fn(page, i, ln));
+                i++;
+            }
+            pages = _pages;
+            return this;
         }
 
         async start(inter, buttons) {
-          if (!pages.length) return;
-          pages = pages;
-          page = page;
-          inter.reply({
-            ephemeral: true,
-            embeds: [pages[0].setFooter({
-              text: `Page ${[page + 1]} / ${pages.length}`
-            })],
-            components: [buttons]
-          }).catch(() => { })
+            if (!this.pages.length) return;
+            pages = this.pages;
+            page = this.page;
+            inter.reply({
+                ephemeral: true,
+                embeds: [this.pages[0].setFooter({
+                    text: `Page ${[page + 1]} / ${pages.length}`
+                })],
+                components: [buttons]
+            }).catch(() => {})
         }
-      }
+    }
 
       if (interaction.customId === "jl") {
         if (client.buttons.get(interaction.member.id)) return interaction.reply({
@@ -153,7 +151,7 @@ module.exports = async (client, interaction) => {
               .setStyle('Primary'),
           );
 
-        const page = new Paginator([])
+        const pagee = new Paginator([], {})
 
         let data;
         data = giveaway.users.map(
@@ -167,12 +165,17 @@ module.exports = async (client, interaction) => {
         );
 
         Math.ceil(data.length / 5);
-        data = data.map((e, i) => page.add(new EmbedBuilder().setAuthor({
+        data = data.map((e, i) => pagee.add(new EmbedBuilder().setAuthor({
           name: `Giveaway Entries`,
           iconURL: interaction.guild.iconURL()
         }).setDescription(`${String(`**Total Participants**: ${giveaway.users.length}\n**Participants**: \n${e.slice(0, 5)}`).replace(/,/g, '')}`).setColor("#FFBF40").setTimestamp()))
 
-        return page.start(interaction, buttons)
+        pagee.setTransform((embed, index, total) => embed.setFooter({
+          text: `Page ${index + 1} / ${total}`,
+          iconURL: client.user.avatarURL()
+      }))
+
+        return pagee.start(interaction, buttons)
       }
 
       if (interaction.customId === "reroll") {
@@ -738,64 +741,64 @@ module.exports = async (client, interaction) => {
 
       switch (interaction.customId) {
         case "first":
-          if (page === 0) {
-            return interaction.reply({
-              ephemeral: true,
-              content: "You can't proceed that way any further."
-            }).catch(() => { })
-          } else {
-            interaction.update({
-              ephemeral: true,
-              embeds: [pages[0].setFooter({
-                text: `Page 1 / ${pages.length}`
-              })]
-            }).catch(() => { })
-            return page = 0;
-          }
+            if (page === 0) {
+                return interaction.reply({
+                    ephemeral: true,
+                    content: "You can't proceed that way any further."
+                }).catch(() => {})
+            } else {
+                interaction.update({
+                    ephemeral: true,
+                    embeds: [pages[0].setFooter({
+                        text: `Page 1 / ${pages.length}`
+                    })]
+                }).catch(() => {})
+                return page = 0;
+            }
         case "prev":
-          if (pages[page - 1]) {
-            return interaction.update({
-              ephemeral: true,
-              embeds: [pages[--page].setFooter({
-                text: `Page ${[page + 1]} / ${pages.length}`
-              })]
-            }).catch(() => { })
-          } else {
-            return interaction.reply({
-              ephemeral: true,
-              content: "You can't proceed that way any further."
-            }).catch(() => { })
-          }
+            if (pages[page - 1]) {
+                return interaction.update({
+                    ephemeral: true,
+                    embeds: [pages[--page].setFooter({
+                        text: `Page ${[page + 1]} / ${pages.length}`
+                    })]
+                }).catch(() => {})
+            } else {
+                return interaction.reply({
+                    ephemeral: true,
+                    content: "You can't proceed that way any further."
+                }).catch(() => {})
+            }
         case "next":
-          if (pages[page + 1]) {
-            return interaction.update({
-              ephemeral: true,
-              embeds: [pages[++page].setFooter({
-                text: `Page ${[page + 1]} / ${pages.length}`
-              })]
-            }).catch(() => { })
-          } else {
-            return interaction.reply({
-              ephemeral: true,
-              content: "You can't proceed that way any further."
-            }).catch(() => { })
-          }
+            if (pages[page + 1]) {
+                return interaction.update({
+                    ephemeral: true,
+                    embeds: [pages[++page].setFooter({
+                        text: `Page ${[page + 1]} / ${pages.length}`
+                    })]
+                }).catch(() => {})
+            } else {
+                return interaction.reply({
+                    ephemeral: true,
+                    content: "You can't proceed that way any further."
+                }).catch(() => {})
+            }
         case "last":
-          if (page === pages.length - 1) {
-            return interaction.reply({
-              ephemeral: true,
-              content: "You can't proceed that way any further."
-            }).catch(() => { })
-          } else {
-            interaction.update({
-              ephemeral: true,
-              embeds: [pages[pages.length - 1].setFooter({
-                text: `Page ${pages.length} / ${pages.length}`
-              })]
-            }).catch(() => { })
-            return page = pages.length - 1;
-          }
-      }
+            if (page === pages.length - 1) {
+                return interaction.reply({
+                    ephemeral: true,
+                    content: "You can't proceed that way any further."
+                }).catch(() => {})
+            } else {
+                interaction.update({
+                    ephemeral: true,
+                    embeds: [pages[pages.length - 1].setFooter({
+                        text: `Page ${pages.length} / ${pages.length}`
+                    })]
+                }).catch(() => {})
+                return page = pages.length - 1;
+            }
+    }
     }
 
     const type = misc.find((s) => s.name === interaction.customId)
