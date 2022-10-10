@@ -99,7 +99,7 @@ module.exports = {
                 name: `Giveaway`,
                 iconURL: interaction.guild.iconURL()
             })
-            .setDescription(`Requirement: ${requirement}`)
+            .setDescription(`**Requirement**: ${requirement}`)
             .addFields([{ name: "Time", value: `<t:${Math.floor((dhms(time) + Date.now()) / 1000)}:R>`, inline: true },
             { name: "Prize", value: `${prize}`, inline: true },
             { name: "Winners", value: `${winners}` }])
