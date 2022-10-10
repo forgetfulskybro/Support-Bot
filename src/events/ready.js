@@ -120,7 +120,7 @@ module.exports = async (client) => {
             name: `Giveaway`,
             iconURL: client.guilds.cache.get(client.config.staffGuild).iconURL()
           })
-          .setDescription(`**The giveaway has ended**`)
+          .setDescription(`**Requirement**: ${db.requirement}`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${db.prize}`, inline: true },
           { name: "Winner(s)", value: `${db.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}`, inline: false }])

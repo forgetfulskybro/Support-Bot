@@ -18,7 +18,11 @@ module.exports = {
         .addStringOption((option) => option
             .setName('prize')
             .setRequired(true)
-            .setDescription('Provide what the prize for the giveaway will be.')),
+            .setDescription('Provide what the prize for the giveaway will be.'))
+        .addStringOption((option) => option
+            .setName('requirement')
+            .setRequired(true)
+            .setDescription('Provide a requirement, this can either be a real one or to DM a certain user.')),
 
     /**
      * @param {CommandInteraction} interaction
@@ -72,6 +76,7 @@ module.exports = {
         }
 
         const prize = interaction.options.getString("prize");
+        const requirement = interaction.options.getString("requirement");
         const buttons = new ActionRowBuilder()
             .addComponents(
                 new ButtonBuilder()
@@ -94,7 +99,7 @@ module.exports = {
                 name: `Giveaway`,
                 iconURL: interaction.guild.iconURL()
             })
-            .setDescription(`Click the \`Join\` button to join the giveaway.`)
+            .setDescription(`Requirement: ${requirement}`)
             .addFields([{ name: "Time", value: `<t:${Math.floor((dhms(time) + Date.now()) / 1000)}:R>`, inline: true },
             { name: "Prize", value: `${prize}`, inline: true },
             { name: "Winners", value: `${winners}` }])
@@ -109,6 +114,7 @@ module.exports = {
             now: Date.now(),
             prize: prize,
             winners: winners,
+            requirement: requirement
         });
 
         giveaway.save();

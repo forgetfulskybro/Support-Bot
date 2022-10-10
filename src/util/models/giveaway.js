@@ -10,7 +10,8 @@ const Schema = new mongoose.Schema({
     pickedWinners: [{ type: Object }],
     picking: [{ type: Object }],
     ended: { type: Boolean, default: false },
-    endDate: { type: String}
+    requirement: { type: String, required: true },
+    endDate: { type: String }
 });
 
 module.exports = mongoose.model("giveaway", Schema);

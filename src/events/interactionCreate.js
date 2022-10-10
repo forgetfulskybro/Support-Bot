@@ -339,7 +339,7 @@ module.exports = async (client, interaction) => {
             name: `Giveaway`,
             iconURL: interaction.guild.iconURL()
           })
-          .setDescription(`\`${interaction.member.user.tag}\` rerolled the giveaway.`)
+          .setDescription(`**Requirement**: ${giveaway.requirement}\n\`${interaction.member.user.tag}\` rerolled the giveaway.`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((giveaway.endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${giveaway.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaway.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
@@ -396,7 +396,7 @@ module.exports = async (client, interaction) => {
             name: `Giveaway`,
             iconURL: interaction.guild.iconURL()
           })
-          .setDescription(`\`${interaction.member.user.tag}\` rerolled the giveaway.`)
+          .setDescription(`**Requirement**: ${giveaways.requirement}\n\`${interaction.member.user.tag}\` rerolled the giveaway.`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((giveaways.endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
@@ -450,7 +450,7 @@ module.exports = async (client, interaction) => {
             name: `Giveaway`,
             iconURL: interaction.guild.iconURL()
           })
-          .setDescription(`\`${interaction.member.user.tag}\` rerolled the giveaway.`)
+          .setDescription(`**Requirement**: ${giveaways.requirement}\n\`${interaction.member.user.tag}\` rerolled the giveaway.`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((giveaways.endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
@@ -504,7 +504,7 @@ module.exports = async (client, interaction) => {
             name: `Giveaway`,
             iconURL: interaction.guild.iconURL()
           })
-          .setDescription(`\`${interaction.member.user.tag}\` rerolled the giveaway.`)
+          .setDescription(`**Requirement**: ${giveaways.requirement}\n\`${interaction.member.user.tag}\` rerolled the giveaway.`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((giveaways.endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
@@ -558,7 +558,7 @@ module.exports = async (client, interaction) => {
             name: `Giveaway`,
             iconURL: interaction.guild.iconURL()
           })
-          .setDescription(`\`${interaction.member.user.tag}\` rerolled the giveaway.`)
+          .setDescription(`**Requirement**: ${giveaways.requirement}\n\`${interaction.member.user.tag}\` rerolled the giveaway.`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((giveaways.endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
@@ -612,7 +612,7 @@ module.exports = async (client, interaction) => {
             name: `Giveaway`,
             iconURL: interaction.guild.iconURL()
           })
-          .setDescription(`\`${interaction.member.user.tag}\` rerolled the giveaway.`)
+          .setDescription(`**Requirement**: ${giveaways.requirement}\n\`${interaction.member.user.tag}\` rerolled the giveaway.`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((giveaways.endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
@@ -666,7 +666,7 @@ module.exports = async (client, interaction) => {
             name: `Giveaway`,
             iconURL: interaction.guild.iconURL()
           })
-          .setDescription(`\`${interaction.member.user.tag}\` rerolled the giveaway.`)
+          .setDescription(`**Requirement**: ${giveaways.requirement}\n\`${interaction.member.user.tag}\` rerolled the giveaway.`)
           .addFields([{ name: "Ended", value: `<t:${Math.floor((giveaways.endDate) / 1000)}:R>`, inline: true },
           { name: "Prize", value: `${giveaways.prize}`, inline: true },
           { name: "Winner(s)", value: `${giveaways.pickedWinners.map(w => `<@${w.user.id}> (\`${w.user.id}\`)`).join(", ")}` }])
