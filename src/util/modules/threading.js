@@ -1,7 +1,7 @@
 const Thread = require("../models/thread.js");
 const Message = require("../models/message.js");
 const Blacklist = require("../models/blocked.js");
-const Discord = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 
 class Threading {
   static async message(client, message) {
@@ -34,7 +34,7 @@ class Threading {
     }
 
     message.attachments.map(async attachment => {
-      const embed = new Discord.EmbedBuilder()
+      const embed = new EmbedBuilder()
         .setAuthor({
           name: message.author.tag,
           iconURL: message.author.avatarURL({
@@ -85,7 +85,7 @@ class Threading {
 
     if (!message.content) return;
 
-    const contentEmbed = new Discord.EmbedBuilder()
+    const contentEmbed = new EmbedBuilder()
       .setAuthor({
         name: message.author.tag,
         iconURL: message.author.avatarURL({

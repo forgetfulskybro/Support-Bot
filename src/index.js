@@ -13,7 +13,7 @@ const client = new Client({
         GatewayIntentBits.GuildMembers,
     ],
     allowedMentions: {
-        parse: ['users', 'roles'],
+        parse: ['users'],
         repliedUser: false
     },
     partials: [Partials.Channel, Partials.Message, Partials.Reaction],
