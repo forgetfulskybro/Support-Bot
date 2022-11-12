@@ -47,7 +47,7 @@ module.exports = {
             .setAuthor({ name: type, iconURL: client.user.displayAvatarURL() })
             .setColor("#0598F7")
             .setFooter({
-                text: "Would You Support",
+                text: "Support",
                 iconURL: interaction.guild.iconURL({ dynamic: true })
             });
 

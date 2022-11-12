@@ -29,7 +29,8 @@ module.exports = {
         const thread = await Thread.findOne({
             id: ID
         });
-        if (thread.admin && !interaction.member.roles.cache.has(client.config.developerRole)) return interaction.reply({ ephemeral: true, content: `That thread was locked for only developers to view!` })
+        if (!thread) return interaction.reply({ ephemeral: true, content: `${client.config.emojis.redTick} Provided thread ID doesn't exist!` });
+        if (thread && thread.admin && !interaction.member.roles.cache.has(client.config.developerRole)) return interaction.reply({ ephemeral: true, content: `That thread was locked for only developers to view!` })
 
         const threadRecipient = await client.users.fetch(thread.recipient);
 

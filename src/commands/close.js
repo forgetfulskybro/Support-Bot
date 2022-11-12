@@ -48,7 +48,7 @@ module.exports = {
                     format: 'png'
                 })
             })
-            .setDescription("**Ticket Closed!** \n\nYour ticket has been closed from further use, if you got any other issues don't be afraid to DM us again!\n\nCheers!\n**Would You Support**")
+            .setDescription("**Ticket Closed!** \n\nYour ticket has been closed from further use, if you got any other issues don't be afraid to DM us again!\n\nCheers!\n**Support**")
             .setColor("#FFBF40")
 
         client.users.cache.get(recipientThread.recipient).send({ embeds: [closed] }).catch(() => { })

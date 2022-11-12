@@ -82,7 +82,7 @@ module.exports = {
                     format: 'png'
                 })
             })
-            .setDescription('A ticket has been started and a support member will get to you soon!\nThanks for your patience \n\n Cheers!\n **Would You Support**')
+            .setDescription('A ticket has been started and a support member will get to you soon!\nThanks for your patience \n\n Cheers!\n **Support**')
             .setColor("#F00605")
         return interaction.reply({
             embeds: [start]

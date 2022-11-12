@@ -214,7 +214,7 @@ module.exports = {
                 data = data.map(e => page.add(new EmbedBuilder().setTitle("Viewing Snippets").setDescription(`${e.slice(0, 3).join("\n\n").toString()}`)))
 
                 page.setTransform((embed, index, total) => embed.setFooter({
-                    text: `Would You Support | Page ${index + 1} / ${total}`,
+                    text: `Support | Page ${index + 1} / ${total}`,
                     iconURL: client.user.avatarURL()
                 }))
 
