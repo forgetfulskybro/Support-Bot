@@ -1,7 +1,7 @@
 const Thread = require("../models/thread.js");
 const Message = require("../models/message.js");
 const Blacklist = require("../models/blocked.js");
-const { EmbedBuilder } = require("discord.js");
+const { EmbedBuilder, ChannelType } = require("discord.js");
 
 class Threading {
   static async message(client, message) {
@@ -10,7 +10,7 @@ class Threading {
     })
     if (black) return;
     if (message.author.bot) return;
-    if (message.channel.type === 1) {
+    if (message.channel.type === ChannelType.DM) {
       const recipientThread = await Thread.findOne({
         recipient: message.author.id,
         closed: false
